@@ -7,7 +7,7 @@ class MouseDrawer:
     def __init__(self):
         pyautogui.FAILSAFE = True
         
-    def draw_paths(self, paths, drawing_area, scale=1.0, delay=0.13):
+    def draw_paths(self, paths, drawing_area, scale=1.0, delay=0.00001):
         top_left, bottom_right = drawing_area
         canvas_width = bottom_right[0] - top_left[0]
         canvas_height = bottom_right[1] - top_left[1]
