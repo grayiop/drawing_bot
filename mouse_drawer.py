@@ -7,7 +7,7 @@ class MouseDrawer:
     def __init__(self):
         pyautogui.FAILSAFE = True
         
-    def draw_paths(self, paths, drawing_area, scale=1.0, delay=0.00001):
+    def draw_paths(self, paths, drawing_area, scale=1.0, delay=0.003):
         top_left, bottom_right = drawing_area
         canvas_width = bottom_right[0] - top_left[0]
         canvas_height = bottom_right[1] - top_left[1]
@@ -59,7 +59,8 @@ class MouseDrawer:
                             raise KeyboardInterrupt
                         x = int(x_offset + ((point[0][0] - min_x) * scale_factor))
                         y = int(y_offset + ((point[0][1] - min_y) * scale_factor))
-                        pyautogui.dragTo(x, y, duration=delay, _pause=False)
+                        pyautogui.moveTo(x, y, _pause=False)
+                        time.sleep(delay)  # Maintain minimal delay between points
                 finally:
                     # Always release mouse button
                     pyautogui.mouseUp(button='left')
