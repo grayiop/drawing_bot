@@ -7,7 +7,7 @@ class MouseDrawer:
     def __init__(self):
         pyautogui.FAILSAFE = True
         
-    def draw_paths(self, paths, drawing_area, scale=1.0, delay=0.003):
+    def draw_paths(self, paths, drawing_area, scale=1.0, delay=0.004):
         top_left, bottom_right = drawing_area
         canvas_width = bottom_right[0] - top_left[0]
         canvas_height = bottom_right[1] - top_left[1]
@@ -34,7 +34,7 @@ class MouseDrawer:
         actual_height = original_height * scale_factor
         x_offset = top_left[0] + (canvas_width - actual_width) / 2
         y_offset = top_left[1] + (canvas_height - actual_height) / 2
-        
+
         print("Get ready to draw... (Press ESC to stop drawing)")
         
         try:
@@ -64,12 +64,13 @@ class MouseDrawer:
                 finally:
                     # Always release mouse button
                     pyautogui.mouseUp(button='left')
-                    time.sleep(0.05)
-                    
+                    time.sleep(0.01)
         except KeyboardInterrupt:
             pyautogui.mouseUp(button='left')
             print("\nDrawing interrupted")
-            
+        finally:
+            print("Drawing complete")
+
     def get_drawing_position(self):
         print("Click the top-left corner of the drawing area...")
         time.sleep(0.5)  # Small delay to prevent accidental clicks
@@ -97,6 +98,10 @@ class MouseDrawer:
         
         print(f"Drawing area selected: {width}x{height} pixels")
         print("Drawing will start in 3 seconds...")
-        time.sleep(3)
-        
+        print("3")
+        time.sleep(1)
+        print("2")
+        time.sleep(1)
+        print("1")
+        time.sleep(1)
         return top_left, bottom_right

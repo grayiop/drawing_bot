@@ -92,7 +92,7 @@ class EdgeDetectionApp:
         self.path_label.pack(side=tk.LEFT, padx=5)
         
         # Draw button
-        draw_btn = tk.Button(btn_frame, text="Draw in Paint", command=self.draw_in_paint)
+        draw_btn = tk.Button(btn_frame, text="Draw", command=self.draw_in_paint)
         draw_btn.pack(padx=5)
         
     def load_image(self):
